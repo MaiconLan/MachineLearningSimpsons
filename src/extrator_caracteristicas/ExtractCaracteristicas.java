@@ -190,8 +190,8 @@ public class ExtractCaracteristicas {
         // Percorre todas as imagens do diret�rio
         int cont = -1;
         //percorrerImagensCarl(arquivosCarl, cont, caracteristicas, exportacao);
-        percorrerImagensKrusty(arquivosKrusty, cont, caracteristicas, exportacao);
-        percorrerImagensMarge(arquivosMarge, cont, caracteristicas, exportacao);
+        exportacao = percorrerImagensKrusty(arquivosKrusty, cont, caracteristicas, exportacao);
+        exportacao = percorrerImagensMarge(arquivosMarge, cont, caracteristicas, exportacao);
 
         // Grava o arquivo ARFF no disco
         try {
@@ -204,7 +204,7 @@ public class ExtractCaracteristicas {
         }
     }
 
-    private static void percorrerImagensKrusty(File[] arquivosKrusty, int cont, double[][] caracteristicas, String exportacao) {
+    private static String percorrerImagensKrusty(File[] arquivosKrusty, int cont, double[][] caracteristicas, String exportacao) {
         for (File imagem : arquivosKrusty) {
             cont++;
             caracteristicas[cont] = extraiCaracteristicas(imagem);
@@ -227,6 +227,8 @@ public class ExtractCaracteristicas {
                     + caracteristicas[cont][5] + ","
                     + classe + "\n";
         }
+
+        return exportacao;
     }
 
     public static void percorrerImagensCarl(File[] arquivosCarl, int cont, double[][] caracteristicas, String exportacao) {
@@ -254,7 +256,7 @@ public class ExtractCaracteristicas {
         }
     }
 
-    public static void percorrerImagensMarge(File[] arquivosMarge, int cont, double[][] caracteristicas, String exportacao) {
+    public static String percorrerImagensMarge(File[] arquivosMarge, int cont, double[][] caracteristicas, String exportacao) {
         for (File imagem : arquivosMarge) {
             cont++;
             caracteristicas[cont] = extraiCaracteristicas(imagem);
@@ -277,6 +279,8 @@ public class ExtractCaracteristicas {
                     + caracteristicas[cont][5] + ","
                     + classe + "\n";
         }
+
+        return exportacao;
     }
 
 }
