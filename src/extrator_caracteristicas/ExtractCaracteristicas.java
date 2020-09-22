@@ -106,10 +106,10 @@ public class ExtractCaracteristicas {
         //APRENDIZADO SUPERVISIONADO - J� SABE QUAL A CLASSE NAS IMAGENS DE TREINAMENTO
         caracteristicas[6] = f.getParentFile().getName().charAt(0) == 'm' ? 0 : 1;
 
-        HighGui.imshow("Imagem original", imagemOriginal);
-        HighGui.imshow("Imagem processada", imagemProcessada);
+        //HighGui.imshow("Imagem original", imagemOriginal);
+        //HighGui.imshow("Imagem processada", imagemProcessada);
 
-        HighGui.waitKey(0);
+        //HighGui.waitKey(0);
 
         return caracteristicas;
     }
