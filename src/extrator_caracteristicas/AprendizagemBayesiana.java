@@ -6,11 +6,16 @@ import javafx.scene.paint.Color;
 import org.opencv.core.Mat;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
+import weka.classifiers.bayes.NaiveBayes;
+import weka.core.DenseInstance;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.converters.ConverterUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 
-public class ExtractCaracteristicas {
+public class AprendizagemBayesiana {
 
 
     public static double[] extraiCaracteristicas(File f) {
@@ -281,6 +286,34 @@ public class ExtractCaracteristicas {
         }
 
         return exportacao;
+    }
+
+    public static double[] naiveBayes(double[] caracteristicas) {
+        double[] retorno = {0, 0};
+        try {
+            //*******carregar arquivo de características
+            ConverterUtils.DataSource ds = new ConverterUtils.DataSource("caracteristicas.arff");
+            Instances instancias = ds.getDataSet();
+            int atributos = instancias.numAttributes();
+            instancias.setClassIndex(atributos - 1);
+
+            //Classifica com base nas características da imagem selecionada
+            NaiveBayes nb = new NaiveBayes();
+            nb.buildClassifier(instancias);//aprendizagem (tabela de probabilidades)
+
+            Instance novo = new DenseInstance(instancias.numAttributes());
+            novo.setDataset(instancias);
+
+            for (int i = 0; i < atributos - 1; i++) {
+                novo.setValue(i, caracteristicas[i]);
+            }
+
+            retorno = nb.distributionForInstance(novo);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return retorno;
     }
 
 }
