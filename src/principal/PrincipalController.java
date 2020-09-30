@@ -34,10 +34,16 @@ public class PrincipalController {
     private Text calcaVerdeKrusty;
 
     @FXML
-    private Text marge;
+    private Text margeNaive;
 
     @FXML
-    private Text krusty;
+    private Text krustyNaive;
+
+    @FXML
+    private Text margeJ48;
+
+    @FXML
+    private Text krustyJ48;
 
     private double[] caracteristicasImgSel;
 
@@ -48,12 +54,19 @@ public class PrincipalController {
         AprendizagemBayesiana.extrair();
     }
 
-    @FXML
-    public void utilizaNaiveBayes() {
+    private void utilizaNaiveBayes() {
         if (caracteristicasImgSel.length != 0) {
             double[] nb = AprendizagemBayesiana.naiveBayes(caracteristicasImgSel);
-            marge.setText("Marge: " + df.format(nb[0] * 100) + "%");
-            krusty.setText("Krusty: " + df.format(nb[1] * 100) + "%");
+            margeNaive.setText("Marge: " + format(nb[0], 100) + "%");
+            krustyNaive.setText("Krusty: " + format(nb[1], 100) + "%");
+        }
+    }
+
+    private void utilizaj48() {
+        if (caracteristicasImgSel.length != 0) {
+            double[] nb = AprendizagemBayesiana.j48(caracteristicasImgSel);
+            margeJ48.setText("Marge: " + format(nb[0], 100) + "%");
+            krustyJ48.setText("Krusty: " + format(nb[1], 100) + "%");
         }
     }
 
@@ -70,7 +83,27 @@ public class PrincipalController {
                 System.out.println(d);
             }
             caracteristicasImgSel = caracteristicas;
+            caracteristicas();
+            utilizaNaiveBayes();
+            utilizaj48();
         }
+    }
+
+    private void caracteristicas() {
+        cabeloAzulMarge.setText("Cabelo Azul: " + format(caracteristicasImgSel[0]) + "%");
+        vestidoVerdeMarge.setText("Vestido Verde: " + format(caracteristicasImgSel[1]) + "%");
+        colarLaranjaMarge.setText("Colar Laranja: " + format(caracteristicasImgSel[2]) + "%");
+        cabeloAzulKrusty.setText("Cabelo Azul: " + format(caracteristicasImgSel[3]) + "%");
+        blusaRosaKrusty.setText("Blusa Rosa: " + format(caracteristicasImgSel[4]) + "%");
+        calcaVerdeKrusty.setText("Calça Verde: " + format(caracteristicasImgSel[5]) + "%");
+    }
+
+    private String format(double number, double multiplier) {
+        return df.format(number * multiplier);
+    }
+
+    private String format(double number) {
+        return df.format(number);
     }
 
     private File buscaImg() {

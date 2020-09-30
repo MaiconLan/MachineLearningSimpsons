@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="446.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.PrincipalController">
+<BorderPane prefHeight="508.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.PrincipalController">
    <top>
       <HBox BorderPane.alignment="CENTER">
          <children>
@@ -27,18 +27,13 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button layoutX="247.0" layoutY="15.0" mnemonicParsing="false" onAction="#utilizaNaiveBayes" text="Naive Bayes">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </Button>
          </children>
       </HBox>
    </top>
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane hbarPolicy="ALWAYS" prefHeight="289.0" prefWidth="272.0" vbarPolicy="ALWAYS">
+            <ScrollPane hbarPolicy="ALWAYS" prefHeight="463.0" prefWidth="392.0" vbarPolicy="ALWAYS">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -56,108 +51,148 @@
                   <content>
                     <AnchorPane minWidth="0.0">
                            <children>
-                              <HBox>
+                              <VBox prefHeight="383.0" prefWidth="387.0">
                                  <children>
-                                    <VBox prefHeight="159.0" prefWidth="182.0">
+                                    <HBox>
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Marge">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Text>
-                                          <Text fx:id="cabeloAzulMarge" strokeType="OUTSIDE" strokeWidth="0.0" text="Cabelo Azul: 0">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </Text>
-                                          <Text fx:id="vestidoVerdeMarge" strokeType="OUTSIDE" strokeWidth="0.0" text="Vestido Verde: 0">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </Text>
-                                          <Text fx:id="colarLaranjaMarge" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colar Laranja: 0">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </Text>
+                                          <VBox prefHeight="159.0" prefWidth="182.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Marge">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="cabeloAzulMarge" strokeType="OUTSIDE" strokeWidth="0.0" text="Cabelo Azul: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="vestidoVerdeMarge" strokeType="OUTSIDE" strokeWidth="0.0" text="Vestido Verde: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="colarLaranjaMarge" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colar Laranja: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="159.0" prefWidth="182.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Krusty">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="cabeloAzulKrusty" strokeType="OUTSIDE" strokeWidth="0.0" text="Cabelo Azul: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="blusaRosaKrusty" strokeType="OUTSIDE" strokeWidth="0.0" text="Blusa Rosa: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="calcaVerdeKrusty" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calça Verde: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </VBox>
-                                    <VBox layoutX="10.0" layoutY="10.0" prefHeight="159.0" prefWidth="182.0">
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="10.0">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Krusty">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Text>
-                                          <Text fx:id="cabeloAzulKrusty" strokeType="OUTSIDE" strokeWidth="0.0" text="Cabelo Azul: 0">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </Text>
-                                          <Text fx:id="blusaRosaKrusty" strokeType="OUTSIDE" strokeWidth="0.0" text="Blusa Rosa: 0">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </Text>
-                                          <Text fx:id="calcaVerdeKrusty" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calça Verde: 0">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </Text>
+                                          <VBox prefHeight="159.0" prefWidth="182.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Naive Bayes">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="margeNaive" strokeType="OUTSIDE" strokeWidth="0.0" text="Marge: 0%">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="krustyNaive" strokeType="OUTSIDE" strokeWidth="0.0" text="Krusty: 0%">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" text="Classificação Naive Bayes">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <VBox prefHeight="159.0" prefWidth="182.0">
-                                 <children>
-                                    <Text fx:id="marge" strokeType="OUTSIDE" strokeWidth="0.0" text="Marge: 0%">
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="krusty" strokeType="OUTSIDE" strokeWidth="0.0" text="Krusty: 0%">
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Text>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="169.0">
+                                       <children>
+                                          <VBox prefHeight="159.0" prefWidth="182.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="J48">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="margeJ48" strokeType="OUTSIDE" strokeWidth="0.0" text="Marge: 0%">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="krustyJ48" layoutX="15.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Krusty: 0%">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                            </children>
