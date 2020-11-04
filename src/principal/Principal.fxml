@@ -27,6 +27,11 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#perceptron" text="Perceptron ">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </top>
@@ -199,6 +204,63 @@
                         </AnchorPane>
                   </content>
                 </TitledPane>
+                  <TitledPane animated="false" prefHeight="386.0" prefWidth="389.0" text="Caracteristicas">
+                     <content>
+                        <AnchorPane minWidth="0.0">
+                           <children>
+                              <VBox prefHeight="383.0" prefWidth="387.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox prefHeight="159.0" prefWidth="182.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gato">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="probabilidadeGato" strokeType="OUTSIDE" strokeWidth="0.0" text="Cabelo Azul: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="159.0" prefWidth="182.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cachorro">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="probabilidadeCachorro" strokeType="OUTSIDE" strokeWidth="0.0" text="Cabelo Azul: 0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="10.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
               </panes>
             </Accordion>
          </children>

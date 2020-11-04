@@ -1,6 +1,7 @@
 package principal;
 
 import extrator_caracteristicas.AprendizagemBayesiana;
+import extrator_caracteristicas.Perceptron;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,9 +46,28 @@ public class PrincipalController {
     @FXML
     private Text krustyJ48;
 
+    @FXML
+    private Text probabilidadeCachorro;
+
+    @FXML
+    private Text probabilidadeGato;
+
     private double[] caracteristicasImgSel;
 
     private DecimalFormat df = new DecimalFormat("##0.0000");
+
+    private Perceptron perceptron = new Perceptron();
+
+    @FXML
+    public void perceptron() throws Exception {
+        perceptron.extrair();
+        File som = buscaSom();
+
+        double[] p = perceptron.perceptron(som);
+        double[] pmn = perceptron.perceptronMultilayerNetwork(p);
+        probabilidadeGato.setText(df.format(pmn[1] * 100) + "%");
+        probabilidadeCachorro.setText(df.format(pmn[0] * 100) + "%");
+    }
 
     @FXML
     public void extrairCaracteristicas() {
@@ -118,6 +138,23 @@ public class PrincipalController {
         try {
             if (imgSelec != null) {
                 return imgSelec;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private File buscaSom() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new
+                FileChooser.ExtensionFilter(
+                "Sons", "*.wav", "*.WAV"));
+        fileChooser.setInitialDirectory(new File("src/dataset"));
+        File somSelec = fileChooser.showOpenDialog(null);
+        try {
+            if (somSelec != null) {
+                return somSelec;
             }
         } catch (Exception e) {
             e.printStackTrace();
