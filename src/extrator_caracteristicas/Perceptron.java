@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Perceptron {
 
@@ -33,11 +35,9 @@ public class Perceptron {
         exportacao += "@attribute classe {Cachorro, Gato}\n\n";
         exportacao += "@data\n";
 
-        File diretorioGatos = new File("src/train/cat");
-        File diretorioCachorros = new File("src/train/dog");
+        File diretorio = new File("src/som/train");
 
-        List<File> arquivos = Arrays.asList(diretorioGatos.listFiles());
-        arquivos.addAll(Arrays.asList(diretorioCachorros.listFiles()));
+        File[] arquivos = diretorio.listFiles();
 
         double[][] caracteristicas = new double[210][3];
 
@@ -170,7 +170,7 @@ public class Perceptron {
                 }
             }
 
-            File outputfile = new File(som.getName() + ".png");
+            File outputfile = new File("src/som/image/" + som.getName() + ".png");
             ImageIO.write(theImage, "png", outputfile);
 
         } catch (IOException e) {
@@ -178,28 +178,6 @@ public class Perceptron {
         }
     }
 
-    public double[] perceptron(File arquivo) throws Exception {
-        ConverterUtils.DataSource ds = new ConverterUtils.DataSource("caracteristicas.arff");
-        Instances instancias = ds.getDataSet();
-
-        instancias.setClassIndex(instancias.numAttributes() - 1);
-
-        MultilayerPerceptron perceptron = new MultilayerPerceptron();
-
-        perceptron.setHiddenLayers(camadas);
-        perceptron.setMomentum(momentum);
-        perceptron.setLearningRate(aprendizado);
-        perceptron.setTrainingTime(tempo);
-
-        perceptron.buildClassifier(instancias);
-
-        ArffLoader arffLoader = new ArffLoader();
-        arffLoader.setFile(arquivo);
-        Instance instance = arffLoader.getDataSet().get(0);
-        instance.setDataset(instancias);
-
-        return perceptron.distributionForInstance(instance);
-    }
 
     public double[] perceptronMultilayerNetwork(double[] caracteristicas) {
         double[] retorno = {0, 0, 0, 0};

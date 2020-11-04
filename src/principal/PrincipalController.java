@@ -63,7 +63,7 @@ public class PrincipalController {
         perceptron.extrair();
         File som = buscaSom();
 
-        double[] p = perceptron.perceptron(som);
+        double[] p = perceptron.extractAmplitudeFromFile(som);
         double[] pmn = perceptron.perceptronMultilayerNetwork(p);
         probabilidadeGato.setText(df.format(pmn[1] * 100) + "%");
         probabilidadeCachorro.setText(df.format(pmn[0] * 100) + "%");
@@ -150,7 +150,7 @@ public class PrincipalController {
         fileChooser.getExtensionFilters().add(new
                 FileChooser.ExtensionFilter(
                 "Sons", "*.wav", "*.WAV"));
-        fileChooser.setInitialDirectory(new File("src/dataset"));
+        fileChooser.setInitialDirectory(new File("src/som/dataset"));
         File somSelec = fileChooser.showOpenDialog(null);
         try {
             if (somSelec != null) {
